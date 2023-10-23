@@ -1,0 +1,417 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;600&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  background-image: url(IMAGENES/fondo.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.video {
+  padding: 25px;
+  box-sizing: content-box;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.video iframe {
+  width: 250px;
+  height: 100px;
+  border-radius: 25px;
+}
+
+.contenedorplayeras {
+  margin: 100px 0px 70px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+}
+
+.playeras {
+  text-align: center;
+}
+
+.playeras h5 {
+  color: white;
+  font-weight: 300;
+}
+
+.playeras p {
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.playeras img {
+  width: 180px;
+  height: 180px;
+}
+
+footer {
+  height: 550px;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding: 25px;
+}
+
+footer img {
+  width: 100px;
+  height: 100px;
+}
+
+footer p {
+  font-weight: 300;
+}
+
+footer h5,
+h3 {
+  font-weight: 200;
+}
+
+footer .credits p {
+  margin-top: 10px;
+  text-align: center;
+  color: blanchedalmond;
+  font-size: 12px;
+}
+
+footer .linea {
+  height: 2px;
+  width: 15px;
+  background-color: rgb(86, 43, 43);
+  margin-bottom: 10px;
+}
+
+/*Mayor a 375 pixeles*/
+@media only screen and (min-width: 770px) {
+  .contenedorplayeras {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 80px 0 50px 0;
+  }
+
+  .video iframe {
+    width: 280px;
+    height: 150px;
+  }
+
+  .playeras img {
+    width: 230px;
+    height: 230px;
+  }
+  .container {
+    margin: 0 auto;
+  }
+
+  body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  footer {
+    height: 280px;
+  }
+
+  footer .informacion {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  footer .informacion .final h3,
+  h5 {
+    font-size: 1.2em;
+  }
+}
+
+/*Mayor a 1000pixeles*/
+
+@media only screen and (min-width: 1440px) {
+  .contenedorplayeras {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 80px 0 50px 0;
+  }
+
+  .playeras img {
+    width: 250px;
+    height: 250px;
+  }
+  body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  footer p {
+    font-size: 20px;
+  }
+
+  footer {
+    height: 280px;
+  }
+
+  footer .informacion .final h3,
+  h5 {
+    font-size: 1.2em;
+  }
+}
+
+/*--------------------------DISEÑO DENTRO PLAYERA----------------------------------*/
+.containerplayera .playera {
+  margin: 50px 0;
+  text-align: center;
+}
+
+.contenedorplayeras2 {
+  margin: 10px 0px 70px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+}
+
+.containerplayera .borde {
+  height: 1px;
+  background-color: white;
+  margin-bottom: 25px;
+}
+
+.containerplayera .info-cliente {
+  color: white;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.playera .informacion {
+  padding: 10px;
+  text-align: left;
+  color: whitesmoke;
+}
+
+.playera .size {
+  display: flex;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.playera .size .sizes {
+  padding: 3px 10px 0px 10px;
+  margin: 0;
+}
+
+.playera .size label {
+  color: red;
+}
+
+.equal {
+  width: 50px;
+  text-align: center;
+  margin: 0;
+}
+
+.playera .precio {
+  color: red;
+  text-align: right;
+  padding-right: 20px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.playera .acciones {
+  text-align: left;
+  padding: 10px;
+}
+
+div .btn {
+  margin: 0;
+  padding: 0;
+  margin-left: 20px;
+  border-radius: 25px;
+  border-style: none;
+}
+
+.buy-btn {
+  width: 150px;
+  height: 50px;
+  background-color: green;
+  text-align: center;
+  color: white;
+  padding-top: 12px;
+  border-radius: 25px;
+}
+
+.acciones {
+  height: 50px;
+  align-items: center;
+}
+
+.buy-btn:hover {
+  background-color: purple;
+}
+
+.btn a {
+  text-decoration: none;
+  color: white;
+  border-color: transparent;
+}
+
+.sizes {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.sizes label {
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  padding-top: 2px;
+  border-radius: 2px;
+  background-color: white;
+  color: black;
+}
+
+@media only screen and (min-width: 600px) {
+  .containerplayera {
+    margin: 80px auto 0px;
+    max-width: 650px;
+  }
+
+  .contenedorplayeras2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    margin: 80px 0 50px 0;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  .containerplayera {
+    max-width: 1150px;
+  }
+  .containerplayera .playera {
+    display: flex;
+    margin-top: 100px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .playera .venta {
+    align-items: center;
+  }
+}
+
+/*----------------------------FORM DATOS------------------------------*/
+main .contenedor-forma {
+  margin: 100px auto;
+  color: white;
+  padding: 0 20px;
+}
+
+.btn-form-container {
+  margin-top: 20px;
+}
+
+.btn-form {
+  background-color: green;
+  border-radius: 20px;
+  width: 150px;
+  height: 50px;
+  border: 0;
+  color: white;
+}
+
+.btn-form:hover {
+  background-color: purple;
+}
+
+.datos {
+  margin-bottom: 50px;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forma {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.talla h5 {
+  margin-top: 100px;
+}
+
+.datos h3 {
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.informacion-pedido {
+  margin-bottom: 50px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.car-container h4 {
+  margin: 0px;
+  margin-left: 1em;
+}
+
+.img-form {
+  width: 120px;
+  height: 120px;
+}
+
+@media only screen and (min-width: 1200px) {
+  main {
+    margin: 100px auto;
+  }
+
+  .contenedor-forma {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  h4 {
+    margin: 0;
+  }
+
+  .informacion-pedido {
+    width: 800px;
+    height: 400px;
+    padding-top: 50px;
+    margin-right: 50px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .datos {
+    width: 118px;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .cant {
+    text-align: center;
+  }
+
+  .cant h3 {
+    margin-top: 30px;
+  }
+
+  .datos h3 {
+    margin-top: 30px;
+  }
+}
