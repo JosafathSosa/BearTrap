@@ -1,12 +1,12 @@
 <?php
 require 'conexion.php';
-$query = "SELECT ID_Cliente, Email_cte, Nombres_cte, Apellidos_cte, Celular_cte FROM Cliente ";
+$query = "SELECT id_cliente, email_cte, nombres_cte, apellidos_cte, celular_cte FROM cliente ";
 $resultado = $mysqli->query($query);
 
-$consulta = "SELECT ID_Pedido, Ciudad_cte, Email_cte ,Nombres_cte, Calle_cte, NoApart_cte, Cant_pedido, Total_pedido, ID_Talla_ProductoPedido, Descripcion_pto FROM Cliente, Pedido, Direccion, ProductoPedido, Producto Where (ID_Cliente = ID_cte) AND (ID_Cliente = Pedido_ID_cte) AND ID_Pedido = (ID_Pedido_ProductoPedido) AND (ID_Producto = ID_Producto_ProductoPedido) AND (ID_Talla_ProductoPedido = Talla_pto)";
+$consulta = "SELECT id_pedido, ciudad_cte, email_cte, nombres_cte, calle_cte, noapart_cte, cant_pedido, total_pedido, producto_talla_pto, descripcion_pto FROM cliente, pedido, direccion, pedido_has_producto, producto Where (cliente.id_cliente = direccion.id_cliente) AND (cliente.id_cliente = pedido.pedido_id_cliente) AND (pedido.id_pedido = pedido_has_producto.pedido_id_pedido) AND (producto.id_producto = pedido_has_producto.producto_id_producto) AND (pedido_has_producto.producto_talla_pto = producto.talla_pto)";
 $res = $mysqli->query($consulta);
 
-$consulta2 = "SELECT * FROM Producto order by Existencia_pto ";
+$consulta2 = "SELECT * FROM producto order by existencia_pto ";
 $resConsulta2 = $mysqli->query($consulta2);
 ?>
 <html>
@@ -40,11 +40,11 @@ $resConsulta2 = $mysqli->query($consulta2);
                     <?php while ($row = $resultado->fetch_assoc()) {?>
                     <tr>
                         <td width="140" align="center">
-                            <?php echo $row['ID_Cliente']; ?></td>
-                        <td><?php echo $row['Email_cte']; ?></td>
-                        <td><?php echo $row['Nombres_cte']; ?></td>
-                        <td><?php echo $row['Apellidos_cte']; ?></td>
-                        <td><?php echo $row['Celular_cte']; ?></td>
+                            <?php echo $row['id_cliente']; ?></td>
+                        <td><?php echo $row['email_cte']; ?></td>
+                        <td><?php echo $row['nombres_cte']; ?></td>
+                        <td><?php echo $row['apellidos_cte']; ?></td>
+                        <td><?php echo $row['celular_cte']; ?></td>
                     </tr>
                     <?php }?>
                 </tbody>
@@ -72,16 +72,16 @@ $resConsulta2 = $mysqli->query($consulta2);
                     <?php while ($row = $res->fetch_assoc()) {?>
                     <tr>
                         <td width="140" align="center">
-                            <?php echo $row['ID_Pedido']; ?></td>
-                        <td><?php echo $row['Ciudad_cte']; ?></td>
-                        <td><?php echo $row['Email_cte']; ?></td>
-                        <td><?php echo $row['Nombres_cte']; ?></td>
-                        <td><?php echo $row['Calle_cte']; ?></td>
-                        <td><?php echo $row['NoApart_cte']; ?></td>
-                        <td><?php echo $row['Cant_pedido']; ?></td>
-                        <td><?php echo $row['Total_pedido']; ?></td>
-                        <td><?php echo $row['ID_Talla_ProductoPedido']; ?></td>
-                        <td><?php echo $row['Descripcion_pto']; ?></td>
+                            <?php echo $row['id_pedido']; ?></td>
+                        <td><?php echo $row['ciudad_cte']; ?></td>
+                        <td><?php echo $row['email_cte']; ?></td>
+                        <td><?php echo $row['nombres_cte']; ?></td>
+                        <td><?php echo $row['calle_cte']; ?></td>
+                        <td><?php echo $row['noapart_cte']; ?></td>
+                        <td><?php echo $row['cant_pedido']; ?></td>
+                        <td><?php echo $row['total_pedido']; ?></td>
+                        <td><?php echo $row['producto_talla_pto']; ?></td>
+                        <td><?php echo $row['descripcion_pto']; ?></td>
                     </tr>
                     <?php }?>
                 </tbody>
@@ -104,11 +104,11 @@ $resConsulta2 = $mysqli->query($consulta2);
                     <?php while ($row = $resConsulta2->fetch_assoc()) {?>
                     <tr>
                         <td width="140" align="center">
-                            <?php echo $row['ID_Producto']; ?></td>
-                        <td><?php echo $row['Descripcion_pto']; ?></td>
-                        <td><?php echo $row['Talla_pto']; ?></td>
-                        <td><?php echo $row['PrecioUnit_ptp']; ?></td>
-                        <td><?php echo $row['Existencia_pto']; ?></td>
+                            <?php echo $row['id_producto']; ?></td>
+                        <td><?php echo $row['descripcion_pto']; ?></td>
+                        <td><?php echo $row['talla_pto']; ?></td>
+                        <td><?php echo $row['preciounit_pto']; ?></td>
+                        <td><?php echo $row['existencia_pto']; ?></td>
 
                     </tr>
                     <?php }?>

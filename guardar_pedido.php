@@ -19,35 +19,35 @@ $cantidad = $mysqli->real_escape_string($_POST['cantidad']);
 $idProd = $mysqli->real_escape_string($_POST['idProd']);
 $talla = $mysqli->real_escape_string($_POST['talla']);
 
-$consulta1 = "INSERT INTO Cliente (Email_cte, Nombres_cte, Apellidos_cte, Celular_Cte) VALUES ('$email', '$nombres', '$apellidos', '$telefono')";
+$consulta1 = "INSERT INTO cliente (email_cte, nombres_cte, apellidos_cte, celular_cte) VALUES ('$email', '$nombres', '$apellidos', '$telefono')";
 $result = $mysqli->query($consulta1);
 
 if ($result) {
     $cte_id = $mysqli->insert_id;
 
-    $consulta2 = "INSERT INTO Direccion (Calle_cte, NoApart_cte, CP_cte, Ciudad_cte, Mcipio_cte, ID_cte) VALUES ('$calle', '$apartamento', '$postal', '$ciudad', '$municipio', '$cte_id')";
+    $consulta2 = "INSERT INTO direccion (calle_cte, noapart_cte, cp_cte, ciudad_cte, mcipio_cte, id_cliente) VALUES ('$calle', '$apartamento', '$postal', '$ciudad', '$municipio', '$cte_id')";
 
     $result = $mysqli->query($consulta2);
 
     //Checar porque falla la cantidad a guardar
-    /*if ($result) {
-        $consulta3 = "INSERT INTO BearDB.Pedido (Cant_pedido, Total_pedido, Pedido_ID_cte) VALUES ('$cantidad', '$precio', '$cte_id')";
+    if ($result) {
+        $consulta3 = "INSERT INTO bear.pedido (cant_pedido, total_pedido, pedido_id_cliente) VALUES ('$cantidad', '$precio', '$cte_id')";
 
         $result = $mysqli->query($consulta3);
 
         $pedido_id = $mysqli->insert_id;
 
         if ($result) {
-            $consulta4 = "UPDATE BearDB.Producto SET Existencia_pto = (Existencia_pto - '$cantidad') WHERE ID_Producto = '$idProd' AND Talla_pto = '$talla' ";
+            $consulta4 = "UPDATE bear.producto SET existencia_pto = (existencia_pto - '$cantidad') WHERE id_producto = '$idProd' AND talla_pto = '$talla' ";
 
             $result = $mysqli->query($consulta4);
 
             if ($result) {
-                $consulta5 = "INSERT INTO BearDB.ProductoPedido (ID_Producto_ProductoPedido, ID_Pedido_ProductoPedido, ID_Talla_ProductoPedido) VALUES ('$idProd', '$pedido_id', '$talla')";
+                $consulta5 = "INSERT INTO bear.pedido_has_producto (producto_id_producto, pedido_id_pedido, producto_talla_pto) VALUES ('$idProd', '$pedido_id', '$talla')";
 
                 $result = $mysqli->query($consulta5);
-                include("index.php");
+                include "index.php";
             }
         }
-    }*/
+    }
 }
